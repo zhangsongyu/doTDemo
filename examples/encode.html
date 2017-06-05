@@ -1,0 +1,31 @@
+<html>
+	<head>
+
+
+	<script id="pagetmpl" type="text/x-dot-template">
+		<h2>Here is the page using a header template</h2>
+
+		Visit {{!it.uri}}
+
+	</script>
+
+
+	<script src="../doT.min.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<div id="content"></div>
+		<div id="contentcustom"></div>
+	</body>
+
+	<script type="text/javascript">
+		var data = {"uri":"https://github.com/olado/doT?name=qwe"};
+
+		var pagefn = doT.template(document.getElementById('pagetmpl').text);
+		document.getElementById('content').innerHTML = pagefn(data);
+
+
+
+	</script>
+
+</html>

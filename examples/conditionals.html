@@ -1,0 +1,48 @@
+<html>
+<head>
+
+
+    <script id="pagetmpl" type="text/x-dot-template">
+        <h2>Here is the page using a header template</h2>
+        {{? it.name }}
+        <div>Oh, I love your name, {{=it.name}}!</div>
+        {{?? it.age === 0}}
+        <div>Guess nobody named you yet!</div>
+        {{??}}
+        You are {{=it.age}} and still don't have a name?
+        {{?}}
+
+    </script>
+
+
+    <script src="../doT.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+<div id="content"></div>
+<div id="contentcustom"></div>
+</body>
+
+<script type="text/javascript">
+    var data = {"name": "Jake", "age": 31};
+
+    var pagefn = doT.template(document.getElementById('pagetmpl').text);
+    document.getElementById('content').innerHTML = pagefn(data);
+
+/*
+    function anonymous(it /!*``*!/) {
+        var out = '';
+        if (it.name) {
+            out += '<div>Oh, I love your name, ' + (it.name) + '!</div>';
+        } else if (it.age === 0) {
+            out += '<div>Guess nobody named you yet!</div>';
+        } else {
+            out += 'You are ' + (it.age) + ' and still don\'t have a name?';
+        }
+        return out;
+    }
+*/
+
+</script>
+
+</html>
